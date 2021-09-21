@@ -9,11 +9,10 @@ connectDB();
 
 // express config
 const app = express();
+app.use(express.json());
 
 // routes
-app.get("/", (req, res) => {
-	res.send("ami coding pari na");
-});
+app.use("/api/users", require("./routes/users"));
 
 // server
 const PORT = process.env.PORT || 3001;
