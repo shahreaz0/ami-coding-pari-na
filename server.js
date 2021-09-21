@@ -1,4 +1,11 @@
 const express = require("express");
+const connectDB = require("./configs/db");
+
+// environment vars
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
+
+// database connection
+connectDB();
 
 // express config
 const app = express();
