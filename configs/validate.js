@@ -10,4 +10,12 @@ const registerSchema = Joi.object({
 	email: Joi.string().email().required(),
 });
 
-module.exports = { registerSchema };
+const loginSchema = Joi.object({
+	password: Joi.string()
+		.pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
+		.min(6)
+		.required(),
+	email: Joi.string().email().required(),
+});
+
+module.exports = { registerSchema, loginSchema };
