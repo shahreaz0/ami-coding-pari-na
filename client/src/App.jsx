@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom";
 // components
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
 
 const App = () => {
   return (
@@ -13,8 +13,8 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/register" component={RegisterPage} />
       </Switch>
     </div>
   );

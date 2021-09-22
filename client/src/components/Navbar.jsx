@@ -12,7 +12,7 @@ const Navbar = () => {
 					id="js-navbar-toggle"
 					htmlFor="chkToggle"
 				>
-					<i class="bx bx-menu"></i>
+					<i className="bx bx-menu"></i>
 				</label>
 				<NavLink to="/" className="logo">
 					acpn

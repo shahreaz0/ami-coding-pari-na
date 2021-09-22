@@ -6,7 +6,9 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
+
 code {
   font-family: "Consolas", monospace;
 }
@@ -27,15 +29,26 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 4rem;
   text-transform: uppercase;
   color: #fff;
-  font-weight: 500;
+  letter-spacing: 3px;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
-@media only screen and (max-width: 950px) {
-  .side-text {
-    font-size: 1.5rem;
+.side-text p {
+  margin-bottom: 0;
+}
+
+.ant-row {
+  height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .ant-row {
+    height: 40%;
   }
 }
 
