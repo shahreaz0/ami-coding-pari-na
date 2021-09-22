@@ -1,9 +1,9 @@
 .RegisterPage {
-  height: 95vh;
+  height: 90vh;
 }
 
 .RegisterPage-form {
-  margin: 6rem 11rem;
+  margin: 6rem 11rem 0 11rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
