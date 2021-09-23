@@ -51,7 +51,7 @@ const Navbar = () => {
 					) : (
 						<li className="nav-li">
 							<Button type="primary" onClick={logout}>
-								LogOut
+								Logout
 							</Button>
 						</li>
 					)}
