@@ -73,7 +73,9 @@ router.post("/login", async (req, res) => {
 		if (user && (await user.comparePassword(password))) {
 			return res.send({ ...user._doc, token: generateToken(user.id) });
 		} else {
-			return res.send({ message: "Incorrect email or password" });
+			return res
+				.status(400)
+				.send({ message: "Incorrect email or password" });
 		}
 	} catch (error) {
 		console.log(error);

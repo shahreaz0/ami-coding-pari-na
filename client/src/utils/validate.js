@@ -20,14 +20,14 @@ const registerFormValidate = {
 			required: true,
 			message: "Please input your password!",
 		},
-		{
-			pattern: new RegExp("(?=.*?[A-Z])"),
-			message: "Password must contain one Capital letter!",
-		},
-		{
-			pattern: new RegExp("(?=.*?[0-9])"),
-			message: "Password must contain one digit!",
-		},
+		// {
+		// 	pattern: new RegExp("(?=.*?[A-Z])"),
+		// 	message: "Password must contain one Capital letter!",
+		// },
+		// {
+		// 	pattern: new RegExp("(?=.*?[0-9])"),
+		// 	message: "Password must contain one digit!",
+		// },
 	],
 	confirmPassword: [
 		{
@@ -66,14 +66,14 @@ const loginFormValidate = {
 			required: true,
 			message: "Please input your password!",
 		},
-		{
-			pattern: new RegExp("(?=.*?[A-Z])"),
-			message: "Password must contain one Capital letter!",
-		},
-		{
-			pattern: new RegExp("(?=.*?[0-9])"),
-			message: "Password must contain one digit!",
-		},
+		// {
+		// 	pattern: new RegExp("(?=.*?[A-Z])"),
+		// 	message: "Password must contain one Capital letter!",
+		// },
+		// {
+		// 	pattern: new RegExp("(?=.*?[0-9])"),
+		// 	message: "Password must contain one digit!",
+		// },
 	],
 };
 
