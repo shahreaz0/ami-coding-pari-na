@@ -1,4 +1,4 @@
-const registerFormValidate = {
+export const registerFormValidate = {
 	name: [
 		{
 			required: true,
@@ -50,7 +50,7 @@ const registerFormValidate = {
 	],
 };
 
-const loginFormValidate = {
+export const loginFormValidate = {
 	email: [
 		{
 			type: "email",
@@ -77,4 +77,25 @@ const loginFormValidate = {
 	],
 };
 
-export { registerFormValidate, loginFormValidate };
+export const gameFormValidate = {
+	text: [
+		{
+			required: true,
+			message: "Please input your text!",
+		},
+		{
+			pattern: new RegExp("^(?:[0-9 ]+,)*[0-9 ]+$"),
+			message: "Only comma seperated sring value is required",
+		},
+	],
+	query: [
+		{
+			required: true,
+			message: "Please input your searched value",
+		},
+		{
+			type: "number",
+			message: "Only numbers are allowed",
+		},
+	],
+};

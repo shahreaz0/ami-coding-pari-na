@@ -1,0 +1,36 @@
+.Home {
+  height: 90vh;
+}
+
+.Home-form {
+  margin: 6rem 12rem 0 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+
+.card {
+  background-color: #fafafa;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #555;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .Home-form {
+    margin: 4rem 6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Home-form {
+    margin: 4rem;
+  }
+}
