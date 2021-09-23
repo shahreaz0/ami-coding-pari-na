@@ -25,3 +25,29 @@ export const loginErrorNotification = (statusCode) => {
 		});
 	}
 };
+
+export const registerSuccessNotification = () => {
+	notification.success({
+		message: "Registration Sucessful",
+		description: "Now you are logged in",
+		placement: "bottomLeft",
+	});
+};
+
+export const registerErrorNotification = (statusCode) => {
+	if (statusCode === 400) {
+		notification.error({
+			message: "User already exists with this email",
+			description: "This email is taken. Use another email",
+			placement: "bottomLeft",
+		});
+	}
+
+	if (statusCode === 500) {
+		notification.error({
+			message: "Server Error",
+			description: "Somthing went wrong",
+			placement: "bottomLeft",
+		});
+	}
+};

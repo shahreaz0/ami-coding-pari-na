@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Form, Input, Button, notification } from "antd";
+import { Form, Input, Button } from "antd";
 
 // utils
 import fetch from "../utils/axios";
@@ -20,17 +20,18 @@ const LoginForm = (props) => {
 	// when form data pass the validation
 	const onFinish = async (values) => {
 		try {
-			const { status, data } = await fetch.post(
-				"/api/users/login",
-				values
-			);
-
+			// destructure data from response
+			const { data } = await fetch.post("/api/users/login", values);
+			// set login to true
 			dispatch({ type: "USER", payload: true });
+			// insert token to the local storage
 			localStorage.setItem("token", data.token);
+			// send notification
 			loginSuccessNotification();
+			// redirect to the home page
 			history.push("/");
 		} catch (error) {
-			console.log(error.response.status);
+			// show proper error message
 			if (error.response.status === 400) loginErrorNotification(400);
 			if (error.response.status === 500) loginErrorNotification(500);
 		}
