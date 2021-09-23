@@ -32,7 +32,7 @@ const RegisterForm = (props) => {
 			// set login to true
 			dispatch({ type: "USER", payload: true });
 			// insert token to the local storage
-			localStorage.setItem("token", data.token);
+			localStorage.setItem("userInfo", JSON.stringify(data));
 			// send notification
 			registerSuccessNotification();
 			// redirect to the home page

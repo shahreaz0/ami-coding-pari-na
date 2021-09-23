@@ -13,7 +13,7 @@ const Navbar = () => {
 
 	const logout = () => {
 		// clear localStorage
-		localStorage.clear("token");
+		localStorage.clear("userInfo");
 		// login set to false
 		dispatch({ type: "USER", payload: false });
 		// redirect to home

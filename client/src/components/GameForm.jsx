@@ -5,21 +5,37 @@ import "./GameForm.css";
 // utils
 import { gameFormValidate } from "../utils/validate";
 import { search } from "../utils/helpers";
+import fetch from "../utils/axios";
 
 const GameForm = (props) => {
-	const onFinish = (values) => {
+	const onFinish = async (values) => {
 		const { text, query } = values;
 		// make an array form comma separeted string
 		const numberStr = text.split(",");
 		// make an number array from number string
 		const numbers = numberStr.map((number) => parseInt(number));
 
+		// sort array in desc order then join
+		const resStr = numbers.sort((a, b) => b - a).join(",");
+
+		// grab user id from localstorage
+		const { _id } = JSON.parse(localStorage.getItem("userInfo"));
+
+		try {
+			const { data } = await fetch.post("/api/records", {
+				userId: _id,
+				data: {
+					input_values: resStr,
+				},
+			});
+		} catch (error) {
+			alert("Someting wrong. Try Again");
+		}
+
 		const found = search(numbers, query);
 
 		props.found(found);
 		props.show(true);
-
-		console.log(found);
 	};
 	return (
 		<div className="GameForm">
