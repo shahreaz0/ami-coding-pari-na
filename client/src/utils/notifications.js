@@ -51,3 +51,11 @@ export const registerErrorNotification = (statusCode) => {
 		});
 	}
 };
+
+export const logoutSuccessNotification = () => {
+	notification.success({
+		message: "Logout Sucessful",
+		description: "Now you are logged out",
+		placement: "bottomLeft",
+	});
+};

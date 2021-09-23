@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import { Button } from "antd";
 import "./Navbar.css";
 
+// utils
+import { logoutSuccessNotification } from "../utils/notifications";
+
 // contexts
 import UserContext from "../contexts/UserContext";
 
@@ -16,6 +19,8 @@ const Navbar = () => {
 		localStorage.clear("userInfo");
 		// login set to false
 		dispatch({ type: "USER", payload: false });
+		// send notification
+		logoutSuccessNotification();
 		// redirect to home
 		history.push("/login");
 	};
