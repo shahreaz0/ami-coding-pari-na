@@ -2,13 +2,13 @@ const express = require("express");
 const connectDB = require("./configs/db");
 const cors = require("cors");
 
-// environment vars
+// environment variables
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 // database connection
 connectDB();
 
-// express config
+// express configs
 const app = express();
 app.use(cors());
 app.use(express.json());

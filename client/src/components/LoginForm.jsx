@@ -1,18 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Form, Input, Button } from "antd";
 import { useHistory } from "react-router-dom";
-
-// contexts
-import UserContext from "../contexts/UserContext";
+import { Form, Input, Button } from "antd";
 
 // utils
 import fetch from "../utils/axios";
 import { loginFormValidate } from "../utils/validate";
 
+// contexts
+import UserContext from "../contexts/UserContext";
+
 const LoginForm = (props) => {
 	let history = useHistory();
 	const { state, dispatch } = useContext(UserContext);
 
+	// when form data pass the validation
 	const onFinish = async (values) => {
 		try {
 			const { status, data } = await fetch.post(
@@ -29,10 +30,6 @@ const LoginForm = (props) => {
 		}
 	};
 
-	const onFinishFailed = (errorInfo) => {
-		console.log("Failed:", errorInfo);
-	};
-
 	return (
 		<div className="LoginForm">
 			<Form
@@ -41,7 +38,6 @@ const LoginForm = (props) => {
 					remember: true,
 				}}
 				onFinish={onFinish}
-				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 				layout="vertical"
 			>

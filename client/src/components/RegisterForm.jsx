@@ -9,10 +9,6 @@ const RegisterForm = (props) => {
 		console.log("Success:", values);
 	};
 
-	const onFinishFailed = (errorInfo) => {
-		console.log("Failed:", errorInfo);
-	};
-
 	return (
 		<div className="LoginForm">
 			<Form
@@ -21,7 +17,6 @@ const RegisterForm = (props) => {
 					remember: true,
 				}}
 				onFinish={onFinish}
-				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 				layout="vertical"
 			>

@@ -14,11 +14,9 @@ const User = require("../models/User");
 router.get("/", async (req, res) => {
 	try {
 		const users = await User.find();
-
 		res.send(users);
-	} catch (e) {
-		// statements
-		console.log(e);
+	} catch (error) {
+		res.status(500).send({ message: "Server Error" });
 	}
 });
 
@@ -51,7 +49,6 @@ router.post("/", async (req, res) => {
 		// response
 		res.send({ ...user._doc, token: generateToken(user.id) });
 	} catch (error) {
-		console.log(error);
 		res.status(500).send({ message: "Server error" });
 	}
 
@@ -70,15 +67,16 @@ router.post("/login", async (req, res) => {
 	try {
 		const user = await User.findOne({ email });
 
+		// if user exsists and password match send with data with token
 		if (user && (await user.comparePassword(password))) {
 			return res.send({ ...user._doc, token: generateToken(user.id) });
-		} else {
-			return res
-				.status(400)
-				.send({ message: "Incorrect email or password" });
 		}
+
+		// else return Incorrect email or password!
+		return res
+			.status(400)
+			.send({ message: "Incorrect email or password!" });
 	} catch (error) {
-		console.log(error);
 		res.status(500).send({ message: "Server error" });
 	}
 });

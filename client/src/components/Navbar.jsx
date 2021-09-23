@@ -12,10 +12,11 @@ const Navbar = () => {
 	const { state, dispatch } = useContext(UserContext);
 
 	const logout = () => {
+		// clear localStorage
 		localStorage.clear("token");
-
+		// login set to false
 		dispatch({ type: "USER", payload: false });
-
+		// redirect to home
 		history.push("/login");
 	};
 
@@ -30,7 +31,7 @@ const Navbar = () => {
 					<i className="bx bx-menu"></i>
 				</label>
 				<NavLink to="/" className="logo">
-					acpn
+					<i className="bx bxs-ghost"></i>
 				</NavLink>
 				<input type="checkbox" id="chkToggle"></input>
 				<ul className="main-nav" id="js-menu">
