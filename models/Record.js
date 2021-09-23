@@ -1,14 +1,21 @@
 const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
-	user_id: {
-		type: mongoose.Schema.Types.objectId,
+	userId: {
+		type: mongoose.Schema.Types.ObjectId,
 		ref: "User",
 	},
+
 	payload: [
 		{
-			timestamp: new Date.now(),
-			input_values: String,
+			timestamp: {
+				type: Date,
+				default: Date.now(),
+			},
+			input_values: {
+				type: String,
+				required: true,
+			},
 		},
 	],
 });
