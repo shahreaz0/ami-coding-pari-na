@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 // contexts
 import UserContext from "./contexts/UserContext";
@@ -21,7 +22,7 @@ const App = () => {
       <UserContext.Provider value={{ state, dispatch }}>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
         </Switch>
