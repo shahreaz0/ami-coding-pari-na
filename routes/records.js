@@ -18,8 +18,7 @@ router.post("/", async (req, res) => {
 		}
 
 		record = new Record({ userId, payload: [data] });
-		// record.userId = userId;
-		// record.payload.push();
+
 		await record.save();
 		res.send(record);
 	} catch (error) {
@@ -32,9 +31,34 @@ router.post("/", async (req, res) => {
 // desc 	get records by params
 // access 	Public
 router.get("/", async (req, res) => {
+	// destructure query parameters
+	const { user_id, end_datetime, start_datetime } = req.query;
+
+	// check all the params available or not
+	if (!user_id || !end_datetime || !start_datetime) {
+		return res.status(400).send({ message: "Send proper parameters" });
+	}
+
 	try {
-		const records = await Record.find();
-		res.send(records);
+		const records = await Record.findOne({ userId: req.query.user_id });
+
+		// if no records send 400
+		if (!records) {
+			return res
+				.status(400)
+				.send({ message: "No records found with this user id" });
+		}
+
+		const end = new Date(end_datetime);
+		const start = new Date(start_datetime);
+
+		// filter payload by datetime frame
+		const filtered = records.payload.filter((data) => {
+			return end > data.timestamp && start < data.timestamp;
+		});
+
+		// send final respone if all is ok
+		res.send({ status: "success", id: user_id, payload: filtered });
 	} catch (error) {
 		console.log(error);
 		res.status(500).send("Server error");
