@@ -4,17 +4,22 @@ import { Route, Redirect } from "react-router-dom";
 // contexts
 import UserContext from "./contexts/UserContext";
 
-const ProtectedRoute = ({ component: Component, redirectRoute, ...rest }) => {
+const ProtectedRouteIfNoUser = ({
+	component: Component,
+	redirectRoute,
+	...rest
+}) => {
 	const { state } = useContext(UserContext);
+	console.log(redirectRoute);
 	return (
 		<Route
 			{...rest}
 			render={(props) => {
-				if (state) return <Component />;
+				if (!state) return <Component />;
 				return <Redirect to={redirectRoute} />;
 			}}
 		/>
 	);
 };
 
-export default ProtectedRoute;
+export default ProtectedRouteIfNoUser;
