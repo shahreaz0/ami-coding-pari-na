@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const dayjs = require("dayjs");
 
 // models
 const Record = require("../models/Record");
@@ -49,12 +50,12 @@ router.get("/", async (req, res) => {
 				.send({ message: "No records found with this user id" });
 		}
 
-		const end = new Date(end_datetime);
-		const start = new Date(start_datetime);
-
 		// filter payload by datetime frame
 		const filtered = records.payload.filter((data) => {
-			return end > data.timestamp && start < data.timestamp;
+			return (
+				dayjs(data.timestamp).isAfter(dayjs(start_datetime)) &&
+				dayjs(data.timestamp).isBefore(dayjs(end_datetime))
+			);
 		});
 
 		// send final respone if all is ok
