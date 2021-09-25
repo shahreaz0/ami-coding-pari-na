@@ -61,7 +61,6 @@ const LoginForm = (props) => {
 					label="Password"
 					name="password"
 					rules={loginFormValidate.password}
-					hasFeedback
 				>
 					<Input.Password />
 				</Form.Item>
