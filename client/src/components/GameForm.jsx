@@ -15,6 +15,10 @@ const GameForm = (props) => {
 		// make an number array from number string
 		const numbers = numberStr.map((number) => parseInt(number));
 
+		const found = search(numbers, query);
+		props.found(found);
+		props.show(true);
+
 		// sort array in desc order then join
 		const resStr = numbers.sort((a, b) => b - a).join(",");
 
@@ -31,12 +35,8 @@ const GameForm = (props) => {
 		} catch (error) {
 			alert("Someting wrong. Try Again");
 		}
-
-		const found = search(numbers, query);
-
-		props.found(found);
-		props.show(true);
 	};
+
 	return (
 		<div className="GameForm">
 			<Form
