@@ -17,6 +17,11 @@ app.use(express.json());
 app.use("/api/users", require("./routes/users"));
 app.use("/api/records", require("./routes/records"));
 
+// heroku deploy configs
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/dist"));
+}
+
 // server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

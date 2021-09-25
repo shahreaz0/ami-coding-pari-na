@@ -10,7 +10,6 @@ const ProtectedRouteIfNoUser = ({
 	...rest
 }) => {
 	const { state } = useContext(UserContext);
-	console.log(redirectRoute);
 	return (
 		<Route
 			{...rest}
