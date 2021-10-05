@@ -77,17 +77,14 @@ export const gameFormValidate = {
 		},
 		{
 			pattern: new RegExp("^(?:[0-9 ]+,)*[0-9 ]+$"),
-			message: "Only comma seperated sring value is required",
+			message: "Only comma seperated value is allowed!",
 		},
 	],
 	query: [
 		{
-			required: true,
-			message: "Please input your searched value",
-		},
-		{
 			type: "number",
-			message: "Only numbers are allowed",
+			required: true,
+			message: "Input is required and only numbers are allowed!",
 		},
 	],
 };

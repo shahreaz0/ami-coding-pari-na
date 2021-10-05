@@ -15,7 +15,12 @@ const GameForm = (props) => {
 		// make an number array from number string
 		const numbers = numberStr.map((number) => parseInt(number));
 
-		const found = search(numbers, query);
+		console.log(numbers.sort((a, b) => a - b));
+
+		const found = search(
+			numbers.sort((a, b) => a - b),
+			query
+		);
 		props.found(found);
 		props.show(true);
 
