@@ -76,7 +76,7 @@ export const gameFormValidate = {
 			message: "Please input your text!",
 		},
 		{
-			pattern: new RegExp("^(?:[0-9 ]+,)*[0-9 ]+$"),
+			pattern: new RegExp("^(?:[0-9]+,)*[0-9]+$"),
 			message: "Only comma seperated value is allowed!",
 		},
 	],
